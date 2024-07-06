@@ -54,9 +54,9 @@ public class Gear {
 		addwish.click();
 }
 	
-	@Test(priority=3)
+	/*@Test(priority=3)
 	public void login() throws InterruptedException {
 //		 loginPage = new Loginpage(driver);
 		loginPage.testlogin("sspoorni1@gmail.com", "Telephone1!");
-	}
+	}*/
 }

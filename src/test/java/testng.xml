@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="E-Commerce Default Suite" parallel="none" thread-count="1">
+    <listeners>
+        <listener class-name="org.testng.reporters.TestHTMLReporter"/>
+    </listeners>
+    <test thread-count="1" name="ecommerce-automation" preserve-order="true">
+        <classes>
+            <class name="automation.Gear"/>
+            <class name="automation.Training"/>
+            <class name="automation.Loginpage"/>
+            <class name="automation.Searchbar"/>
+            <class name="automation.Cartoption"/>
+            <class name="automation.Mendropdown"/>
+            <class name="automation.CheckOutTest"/>
+            <class name="automation.Createaccount"/>
+            <class name="automation.Womendropdown"/>
+            <class name="automation.Forgotpassword"/>
+        </classes>
+    </test> <!-- ecommerce-automation -->
+</suite> <!-- Default Suite -->

@@ -47,11 +47,7 @@ public class Forgotpassword {
 		WebElement resetbutton = driver.findElement(By.xpath("//button[@class=\"action submit primary\"]"));
 		resetbutton.click();
 		
-		if (resetbutton.isEnabled())
-		{
-			System.out.println("Reset button is enabled");
-		}
-		
+
 		
 		
 	}

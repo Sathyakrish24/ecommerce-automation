@@ -13,7 +13,7 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class CheckOutTest extends BaseTest {
+public class CheckOutTest  {
     WebDriver driver;
 
     @BeforeSuite
@@ -29,13 +29,13 @@ public class CheckOutTest extends BaseTest {
         return new Object[][]{{"abc@gmail.com", "sathya", "poorani", "ABC Pvt Ltd", "no13 xyz street", " Dallas", "12345-6789", "9999999"}};
     }
 
-    @Test(priority = 1, dataProvider = "shippingdetails")
+    @Test(priority = 0, dataProvider = "shippingdetails")
     public void testCheckOut(String email, String firstName, String lastName, String company, String street, String city, String zip, String telephone) throws InterruptedException {
         selectItem();
         enterShippingDetails(email, firstName, lastName, company, street, city, zip, telephone);
         checkoutoption();
     }
-
+    @Test(priority=1)
     public void selectItem() throws InterruptedException {
         WebElement menoption = driver.findElement(By.id("ui-id-5"));
         menoption.click();
@@ -68,6 +68,7 @@ public class CheckOutTest extends BaseTest {
 
     }
 
+    @Test(priority=1, dataProvider="shippingdetails")
 
     public void enterShippingDetails(String email, String firstName, String lastName, String company, String street, String city, String zip, String telephone) throws InterruptedException {
         //	WebDriver wait1 = new WebDriverWait(driver,Duration.ofSeconds(30));
@@ -95,22 +96,21 @@ public class CheckOutTest extends BaseTest {
         Thread.sleep(2000);
     }
 
+    @Test(priority = 2)
+        public void checkoutoption () throws InterruptedException {
 
-    public void checkoutoption() throws InterruptedException {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
+            wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button.action.primary.checkout")));
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button.action.primary.checkout")));
+            By locator = By.cssSelector("button.action.primary.checkout");
+            WebElement checkout = driver.findElement(locator);
+            checkout.click();
 
-        By locator = By.cssSelector("button.action.primary.checkout");
-        WebElement checkout = driver.findElement(locator);
-        checkout.click();
-        login();
 
-        String pagelanded = driver.getTitle();
+            String pagelanded = driver.getTitle();
 
-        System.out.println("Page landed now is    " + pagelanded);
+            System.out.println("Page landed now is    " + pagelanded);
+
+        }
 
     }
-
-
-}
