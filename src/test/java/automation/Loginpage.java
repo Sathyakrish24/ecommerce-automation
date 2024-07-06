@@ -15,11 +15,6 @@ import org.testng.annotations.Test;
 public class Loginpage {
     WebDriver driver;
 
-//	public Loginpage(WebDriver driver) {
-//		this.driver=driver;
-//	}
-
-
     @BeforeSuite
     public void SetUp() throws InterruptedException {
         //System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe");

@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
@@ -18,7 +19,7 @@ public class Gear {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("https://magento.softwaretestingboard.com/");
-//		 loginPage = new Loginpage(driver);
+
 	}
 	
 	@Test(priority =0)
@@ -53,10 +54,9 @@ public class Gear {
 		WebElement addwish = driver.findElement(By.cssSelector("a.action.towishlist"));
 		addwish.click();
 }
-	
-	/*@Test(priority=3)
-	public void login() throws InterruptedException {
-//		 loginPage = new Loginpage(driver);
-		loginPage.testlogin("sspoorni1@gmail.com", "Telephone1!");
-	}*/
+
+	@AfterSuite
+	public void closeBrowser() {
+		driver.quit();
+	}
 }
